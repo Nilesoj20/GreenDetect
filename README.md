@@ -16,6 +16,7 @@ Este proyecto utiliza un modelo de Tensorflow.js, el cual para cargarse requiere
 * Navega hasta la carpeta donde descargaste el repositorio
 * Ejecuta el comando python -m http.server 8000
 * Abre un explorador y ve a http://localhost:8000
+  
 ![DETECTOR DE IMAGENES WEB](https://i.imgur.com/sKb2gqk.png)
 ### Utilizarlo en el celular
 Si quieres abrirlo en tu celular, no se puede solo poner la IP local de tu computadora y el puerto, ya que para usar la cámara se requiere HTTPS. Puedes hacer un túnel de HTTPS siguiendo los siguientes pasos
@@ -29,8 +30,9 @@ Si quieres abrirlo en tu celular, no se puede solo poner la IP local de tu compu
 * Abre un explorador en tu celular y ve al enlace HTTPS indicado
 ### Uso del detector con celular
 Puedes dar clic en el botón de "Cambiar camara" para utilizar la cámara delantera o trasera del celular. Solo apunta la cámara a un objeto por ejemplo una botella PET, y abajo te aparecerá la predicción. Tampoco es el clasificador del futuro entonces si no clasifica perfecto, entiendan de que hemos trabajado con un rango del 70 a 85% de acierto. (Con solo 5 epocas)
+
 ![DETECTOR DE IMAGENES WEB](https://i.imgur.com/5A6Zc0S.png)
 ## Integrantes
-* Stefano Madueño <stefanoml128@gmail.com>
-* Joselin Rivas <joselinrivas@gmail.com>
-* Johana Herrera <johanarosicelaherreraperez@gmail.com>
+* Stefano Madueño <stefanoml128@gmail.com> 🚀
+* Joselin Rivas <joselinrivas@gmail.com> 🚀
+* Johana Herrera <johanarosicelaherreraperez@gmail.com> 🚀
