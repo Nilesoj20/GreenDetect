@@ -1,5 +1,6 @@
 # GreenDetect
-## Clasificación de imágenes (Reciclaje/organico)
+## Clasificación de imágenes (Reciclaje/Orgánico)
+![DETECTOR DE IMAGENES](https://i.imgur.com/sKb2gqk.png)
 
 Este código representa el sitio web, una vez que se crea y entrena el modelo de inteligencia artificial con Python y Tensorflow, el cual es exportado a los archivos "json" y "bin". Puede utilizarse en el celular, solo apunta la cámara algunos objetos que quieres clasificar (puede ser una imagen de la computadora, una foto, o uno de verdad), y obtendras el resultado. Todo lo hace en el explorador utilizando Tensorflow.js.
 
