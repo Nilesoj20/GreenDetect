@@ -29,7 +29,7 @@ Si quieres abrirlo en tu celular, no se puede solo poner la IP local de tu compu
 * Abre un explorador en tu celular y ve al enlace HTTPS indicado
 ### Uso del detector con celular
 Puedes dar clic en el botón de "Cambiar camara" para utilizar la cámara delantera o trasera del celular. Solo apunta la cámara a un objeto por ejemplo una botella PET, y abajo te aparecerá la predicción. Tampoco es el clasificador del futuro entonces si no clasifica perfecto, entiendan de que hemos trabajado con un rango del 70 a 85% de acierto. (Con solo 5 epocas)
-![DETECTOR DE IMAGENES WEB](https://imgur.com/a/oD2uHBw)
+![DETECTOR DE IMAGENES WEB](https://i.imgur.com/5A6Zc0S.png)
 ## Integrantes
 * Stefano Madueño <stefanoml128@gmail.com>
 * Joselin Rivas <joselinrivas@gmail.com>
