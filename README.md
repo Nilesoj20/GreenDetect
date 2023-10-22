@@ -26,7 +26,7 @@ Si quieres abrirlo en tu celular, no se puede solo poner la IP local de tu compu
 * Ejecuta el comando ngrok http 8000
 * Es importante tener ambos activos: El servidor de python, y el túnel de ngrok
 * En la línea de comandos aparecerá un enlace HTTPS. Puedes entrar ahí con tu celular, no importa si no estás en la red local.
-* El túnel expira después de 2 horas creo, en dado caso solo reinicias ngrok
+* El túnel expira después de 2 horas aproximadamente, en dado caso solo reinicias ngrok
 * Abre un explorador en tu celular y ve al enlace HTTPS indicado
 ### Uso del detector con celular
 Puedes dar clic en el botón de "Cambiar camara" para utilizar la cámara delantera o trasera del celular. Solo apunta la cámara a un objeto por ejemplo una botella PET, y abajo te aparecerá la predicción. Tampoco es el clasificador del futuro entonces si no clasifica perfecto, entiendan de que hemos trabajado con un rango del 70 a 85% de acierto. (Con solo 5 epocas)
@@ -34,5 +34,5 @@ Puedes dar clic en el botón de "Cambiar camara" para utilizar la cámara delant
 ![DETECTOR DE IMAGENES WEB](https://i.imgur.com/5A6Zc0S.png)
 ## Integrantes
 * Stefano Madueño <stefanoml128@gmail.com> 🚀
-* Joselin Rivas <joselinrivas@gmail.com> 🚀
+* Joselin Rivas <vicmarrivas20@gmail.com> 🚀
 * Johana Herrera <johanarosicelaherreraperez@gmail.com> 🚀
