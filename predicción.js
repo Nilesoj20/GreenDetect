@@ -9,7 +9,7 @@ let ctx = canvas.getContext("2d");
 
 (async() => {
     console.log("Cargando modelo...");
-    modelo = await tf.loadLayersModel("model3.json");
+    modelo = await tf.loadLayersModel("ModeloEntrenado/model3.json");
     console.log("Modelo cargado");
 })();
 
