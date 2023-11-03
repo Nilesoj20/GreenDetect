@@ -1,0 +1,292 @@
+.scroll-to-top-button {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #2F3136;
+    color: #77ac63;
+    border: none;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.scroll-to-top-button i {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+}
+
+/* Estilos generales */
+
+.secciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+
+.seccion-oscura {
+    color: white;
+    background-color: #77ac63;
+}
+
+.seccion-clara {
+    color: #2F3136;
+    background-color: white;
+}
+
+p {
+    line-height: 1;
+    padding-top: 15px;
+}
+
+div {
+    /*margin-bottom: 10px;*/
+    padding: 10px;
+}
+
+/* Barra de navegación */
+
+.navbar {
+    display: flex;
+}
+
+.navbar-collapse {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    font-family: 'Aref Ruqaa Ink', serif;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #2F3136;
+}
+
+.nav-item {
+    font-family: 'Aref Ruqaa Ink', serif;
+    font-size: 2rem;
+    color: #0e1108;
+}
+
+/* Pantalla principal */
+
+.video {
+    position: relative;
+    margin-top: 30px;
+}
+
+.btn-apagar-camara {
+    position: absolute;
+    background-color: #2e4d27;
+    color: #f3f7ef;
+    font-size: 1.5em;
+    border-radius: 10px;
+    left: 25%;
+    top: 1.5em;
+    z-index: 10;
+}
+
+.btn-cambiar-camara {
+    position: absolute;
+    background-color: #2e4d27;
+    color: #f3f7ef;
+    font-size: 1.5em;
+    border-radius: 10px;
+    right: 25%;
+    top: 1.5em;
+    z-index: 6;
+}
+
+#resultado {
+    position: absolute;
+    bottom: 3rem;
+    font-size: 2em;
+    font-family: 'Aref Ruqaa Ink', serif;
+    padding: 0.5em;
+    border-radius: 10px;
+    z-index: 30;
+    opacity: 0.8;
+    left: 25%;
+}
+
+#textosPantallaPrincipal {
+    font-size: 1.5rem;
+    font-family: 'Aref Ruqaa Ink', serif;
+    margin: auto;
+    max-width: 60vw;
+}
+
+/*Tutorial*/
+
+.texto-tutorial {
+    font-family: 'Aref Ruqaa Ink', serif;
+    font-size: 2.5em;
+}
+.video-tutorial {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#video-container {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+video {
+    width: 100%;
+    height: auto;
+}
+
+/*GreenDetect*/
+
+.imagen-GreenDetect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.GreenDetect {
+    padding: auto;
+}
+
+.div-GreenDetect {
+    text-align: center;
+    justify-content: center;
+    max-width: 60vw;
+    margin: auto;
+}
+
+.seccion-titulo {
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Aref Ruqaa Ink', serif;
+    margin: auto;
+    max-width: 90%;
+}
+
+.seccion-texto {
+    font-size: 1.2rem;
+    font-family: monospace;
+}
+
+/*Proyectos*/
+
+.proyectos {
+    display: flex;
+    align-items: center;
+}
+
+.proyectos h1 {
+    font-family: 'Aref Ruqaa Ink', serif;
+    font-weight: bold;
+    font: 5em;
+}
+
+.texto-proyectos {
+    display: none;
+    font-family: monospace;
+    font-size: 1.2em;
+}
+
+/*Centro reciclaje*/
+.centro-reciclaje h5 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2em;
+    color: #0e1108;
+}
+
+/* Integrante */
+
+.integrante {
+    padding: 40px 40px 60px 40px;
+}
+
+.imagen-perfil {
+    height: 200px;
+    width: 200px;
+    padding: 10px 20px;
+    border-radius: 40%;
+    margin: 20px;
+}
+.integrante-titulo {
+    font-family: 'Aref Ruqaa Ink', serif;
+    font-size: 40px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.especialidad {
+    font-family: 'Aref Ruqaa Ink', serif;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.especialidad p {
+    font-family: monospace;
+    font-size: 20;
+}
+
+.badges-contenedor {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.badge {
+    margin: 5px;
+}
+
+.color-git {
+    color: #2F3136;
+    font-size: 2rem;
+}
+
+.color-linkedin {
+    font-size: 2rem;
+}
+
+.text-bg-custom {
+    color: white;
+    background-color: #2F3136;
+}
+/*Footer*/
+
+footer {
+    background-color: #2F3136;
+    color: #77ac63;
+}
+
+.header-footer {
+    display: flex;
+    align-items: center;
+    font-family: 'Aref Ruqaa Ink', serif;
+    font-size: 2em;
+    color: #77ac63;
+}
+
+.body-footer{
+    align-items: center;
+    font-family: 'Aref Ruqaa Ink', serif;
+    font-size: 1em;
+    color:#f3f7ef
+}
+/* Adaptable (responsivo) */
+
+@media screen and (max-width: 919px) {
+    .navbar-brand {
+        display: none;
+    }
+}
