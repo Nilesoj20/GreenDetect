@@ -56,11 +56,28 @@ function mostrarCamara() {
     }
 }
 
+// Variable para almacenar la función original predecir
+let predecirOriginal = predecir;
+
 function apagarCamara() {
     if (currentStream) {
         currentStream.getTracks().forEach(track => {
             track.enabled = !track.enabled;
         });
+        if (!currentStream.getVideoTracks()[0].enabled) {
+            // La cámara está apagada, detenemos la función predecir y borramos el contenido del elemento con el id "resultado"
+            document.getElementById("resultado").innerHTML = "";
+            document.getElementById("resultado").style.backgroundColor = ""; // Aquí se borra el background-color del elemento con el id "resultado"
+            predecir = function() {
+                document.getElementById("resultado").innerHTML = ""; // Aquí se borra el contenido del elemento con el id "resultado"
+                document.getElementById("resultado").style.backgroundColor = ""; // Aquí se borra el background-color del elemento con el id "resultado"
+            };
+        } else {
+            // La cámara está encendida, ejecutamos mostrarCamara() y restauramos la función predecir
+            mostrarCamara();
+            predecir = predecirOriginal;
+            predecir();
+        }
     }
 }
 
