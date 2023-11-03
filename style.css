@@ -23,6 +23,11 @@
 
 /* Estilos generales */
 
+h2 {
+    font-size: 4rem;
+    font-family: 'Aref Ruqaa Ink', serif;
+}
+
 .secciones {
     display: flex;
     flex-direction: column;
@@ -261,6 +266,14 @@ video {
 .text-bg-custom {
     color: white;
     background-color: #2F3136;
+}
+
+/*Centro de reciclaje*/
+.centro-reciclaje button{
+    background-color: #2F3136;
+    color: white;
+    font-size: 3rem;
+    font-family: 'Aref Ruqaa Ink', serif;
 }
 /*Footer*/
 
