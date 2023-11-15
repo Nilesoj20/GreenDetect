@@ -1,5 +1,5 @@
 let modelo = null;
-const tamaño = 500;
+const tamaño = 400;
 let currentStream = null;
 let video = document.getElementById("video")
 let facingMode = "user";
@@ -7,15 +7,50 @@ let canvas = document.getElementById("canvas");
 let otrocanvas = document.getElementById("otrocanvas");
 let ctx = canvas.getContext("2d");
 
-(async() => {
+(async () => {
     console.log("Cargando modelo...");
     modelo = await tf.loadLayersModel("model3.json");
     console.log("Modelo cargado");
 })();
 
 // Cuando la ventana y todos los recursos están cargados, llama a la función mostrarCamara()
-window.onload = function() {
-    mostrarCamara();
+window.onload = function () {
+    currentStream = null;
+}
+
+// Variable para almacenar la función original predecir
+let predecirOriginal = predecir;
+let timeoutId;
+
+function apagarCamara() {
+    if (currentStream) {
+        currentStream.getTracks().forEach(track => {
+            track.enabled = !track.enabled;
+        });
+
+        // Detenemos el temporizador actual
+        clearTimeout(timeoutId);
+
+        if (!currentStream.getVideoTracks()[0].enabled) {
+            // La cámara está apagada, detenemos la función predecir y borramos el contenido del elemento con el id "resultado"
+            document.getElementById("resultado").innerHTML = "";
+            document.getElementById("informacion-texto").innerHTML = "La contaminación ambiental amenaza la vida en la Tierra. Desperdiciar recursos, contaminar el aire y el agua acelera la degradación del planeta. ¡Actuemos ahora para salvar nuestro hogar!";
+            document.getElementById("informacion-imagen").innerHTML = '<img src="Imagenes/header_imagen2.jpg">';
+
+            predecir = function () {
+
+                detenerTemporizador();
+            
+            };
+        } else {
+            // La cámara está encendida, ejecutamos mostrarCamara() y restauramos la función predecir
+            mostrarCamara();
+            predecir = predecirOriginal;
+            predecir();
+        }
+    } else {
+        mostrarCamara();
+    }
 }
 
 /**
@@ -37,7 +72,7 @@ function mostrarCamara() {
         //Solicita acceso a la cámara con las opciones especificadas 
         navigator.mediaDevices.getUserMedia(opciones)
             // Se ejecuta si se obtiene acceso a la cámara correctamente
-            .then(function(stream) {
+            .then(function (stream) {
                 // Almacena el flujo de video en la variable currentStream
                 currentStream = stream;
                 // Establece el flujo de video como fuente del elemento de video en el HTML
@@ -47,37 +82,12 @@ function mostrarCamara() {
                 predecir();
             })
             // Se ejecuta si hay un error al acceder a la cámara
-            .catch(function(err) {
+            .catch(function (err) {
                 alert("No se pudo utilizar la camara");
                 console.log("error de cámara");
             })
     } else {
-    alert("No existe la funcion getUserMedia");
-    }
-}
-
-// Variable para almacenar la función original predecir
-let predecirOriginal = predecir;
-
-function apagarCamara() {
-    if (currentStream) {
-        currentStream.getTracks().forEach(track => {
-            track.enabled = !track.enabled;
-        });
-        if (!currentStream.getVideoTracks()[0].enabled) {
-            // La cámara está apagada, detenemos la función predecir y borramos el contenido del elemento con el id "resultado"
-            document.getElementById("resultado").innerHTML = "";
-            document.getElementById("resultado").style.backgroundColor = ""; // Aquí se borra el background-color del elemento con el id "resultado"
-            predecir = function() {
-                document.getElementById("resultado").innerHTML = ""; // Aquí se borra el contenido del elemento con el id "resultado"
-                document.getElementById("resultado").style.backgroundColor = ""; // Aquí se borra el background-color del elemento con el id "resultado"
-            };
-        } else {
-            // La cámara está encendida, ejecutamos mostrarCamara() y restauramos la función predecir
-            mostrarCamara();
-            predecir = predecirOriginal;
-            predecir();
-        }
+        alert("No existe la funcion getUserMedia");
     }
 }
 
@@ -109,15 +119,15 @@ function cambiarCamara() {
 
     // Solicita acceso a la cámara con las nuevas opciones
     navigator.mediaDevices.getUserMedia(opciones)
-    .then(function(stream) {
-        // Se ejecuta si se obtiene acceso a la cámara correctamente
-        currentStream = stream; // Almacena el nuevo flujo de cámara en currentStream
-        video.srcObject = currentStream; // Establece el nuevo flujo de cámara en el elemento de video HTML
-    })
-    .catch(function(err) {
-        // Se ejecuta si hay un error al acceder a la cámara
-        console.log("Oops, hubo un error", err);
-    });
+        .then(function (stream) {
+            // Se ejecuta si se obtiene acceso a la cámara correctamente
+            currentStream = stream; // Almacena el nuevo flujo de cámara en currentStream
+            video.srcObject = currentStream; // Establece el nuevo flujo de cámara en el elemento de video HTML
+        })
+        .catch(function (err) {
+            // Se ejecuta si hay un error al acceder a la cámara
+            console.log("Oops, hubo un error", err);
+        });
 }
 
 function procesarCamara() {
@@ -125,6 +135,37 @@ function procesarCamara() {
     ctx.drawImage(video, 0, 0, tamaño, tamaño, 0, 0, tamaño, tamaño);
     // Se establece un temporizador para llamar a la función con un breve retraso de 20 milisegundos
     setTimeout(procesarCamara, 20);
+}
+
+function detenerTemporizador() {
+    // Detenemos el temporizador actual
+    clearTimeout(timeoutId);
+
+    let resultado = document.getElementById("resultado");
+    let informacionTexto = document.getElementById("informacion-texto");
+    let informacionImagen = document.getElementById("informacion-imagen");
+
+    // Agregamos una clase de transición
+    resultado.classList.add('resultado-transition');
+    informacionTexto.classList.add('texto-transition');
+    informacionImagen.classList.add('imagen-transition');
+
+    // Iniciamos un nuevo temporizador para esperar 4 segundos antes de borrar el resultado, informacionTexto e informacionImagen
+    timeoutId = setTimeout(function () {
+        resultado.innerHTML = ""; // Borramos el contenido del elemento con el id "resultado"
+        informacionTexto.innerHTML = ""; // Borramos el contenido del elemento con el id "informacion-texto"
+        informacionImagen.innerHTML = ""; // Borramos el contenido del elemento con el id "informacion-imagen"
+    }, 4000);
+
+    // Iniciamos un nuevo temporizador para esperar 6 segundos antes de realizar la próxima predicción
+    timeoutId = setTimeout(function () {
+        // Eliminamos la clase de transición después de 6 segundos
+        resultado.classList.remove('resultado-transition');
+        informacionTexto.classList.remove('texto-transition');
+        informacionImagen.classList.remove('imagen-transition');
+
+        predecir(); // Llamamos a la función predecir después de 6 segundos
+    }, 10000); 
 }
 
 function predecir() {
@@ -161,27 +202,34 @@ function predecir() {
 
         // Realiza la predicción utilizando el modelo
         let resolucion = modelo.predict(tensor).dataSync();
-        let resultado = document.getElementById("resultado")
+        let resultado = document.getElementById("resultado");
+        let informacionTexto = document.getElementById("informacion-texto");
+        let informacionImagen = document.getElementById("informacion-imagen");
 
         // Determina la clase de la predicción
-        let respuesta;
         if (resolucion <= 0.5) {
-            respuesta = "Orgánico";
-            resultado.style.backgroundColor = "#CE430F";
-            resultado.style.color = "white"
+            resultado.innerHTML = '<img src="Imagenes/i_organico.png" style="width: 4em;">';
+            informacionTexto.innerHTML = "Reciclar residuos orgánicos es esencial para reducir la emisión de gases de efecto invernadero en vertederos, enriquecer el suelo mediante el compostaje y fomentar prácticas sostenibles que preserven nuestro entorno.";
+            informacionImagen.innerHTML = '<img src="Imagenes/contenedor_marron.png">';
         } else {
-            respuesta = "Reciclaje";
-            resultado.style.backgroundColor = "#65D117";
-            resultado.style.color = "white";
+            resultado.innerHTML = '<img src="Imagenes/i_ecologico.png" style="width: 4em;">';
+            informacionTexto.innerHTML = "Reciclar residuos reciclables es vital para reducir la demanda de recursos naturales y disminuir la contaminación. Al aprovechar estos materiales, se fomenta la sostenibilidad y se limita el impacto ambiental negativo.";
+            informacionImagen.innerHTML = '<img src="Imagenes/contenedor_verde.png">';
         }
 
-        // Muestra el resultado en un elemento HTML con id "resultado"
-        document.getElementById("resultado").innerHTML = respuesta;
-    }
+        // Iniciamos el temporizador para la próxima ejecución
+        detenerTemporizador();
 
-    // Establece un temporizador para llamar a la función predecir() nuevamente después de 150 milisegundos
-    setTimeout(predecir, 150);
+        // setTimeout(function() {
+        //     resultado.innerHTML = '';
+        //     informacionTexto.innerHTML = "La contaminación ambiental amenaza la vida en la Tierra. Desperdiciar recursos, contaminar el aire y el agua acelera la degradación del planeta. ¡Actuemos ahora para salvar nuestro hogar!";
+        //     informacionImagen.innerHTML = '<img src="Imagenes/header_imagen2.jpg">';
+        //     setTimeout(predecir, 5000);
+        // }, 5000);
+    }
 }
+// Inicializar el temporizador al cargar la página
+detenerTemporizador();
 
 // Se utiliza para redimensionar el canvas en una nueva dimensión especificada
 // La técnica utilizada para redimensionar el lienzo es el filtrado de interpolación de Hermite. 

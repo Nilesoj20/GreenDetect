@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
-    <!-- Metadatos -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Título -->
-    <title>GreenDetect</title>
+    <title>GreenDetec</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="Imagenes/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="Imagenes/favicon-16x16.png">
@@ -15,234 +13,180 @@
     <!-- Iconos de Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <!-- CSS -->
-    <link href="style.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <button id="btnScrollToTop" class="scroll-to-top-button">
-        <i class="bi bi-arrow-up-circle"></i>
-    </button>
-    <!-- Barra de navegación -->
-    <header>
-        <nav class="navbar navbar-expand-md navbar-light secciones">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbar-toggler">
-                    <a class="navbar-brand" href="#">
-                        <img src="Imagenes/Logotipo.png" width="80" alt="Logo de la pagina web">
-                        GreenDetect
-                    </a>
-                    <ul class="navbar-nav d-flex justify-content-center align-items-center">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#tutorial">Tutorial</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#greenDetect">Nuestro proyecto</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#proyectos">Proyectos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#centro-reciclaje">Centros de reciclaje</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#integrantes">Integrantes</a>
-                        </li>
-                    </ul>
+    <header class="hero">
+        <nav class="nav container">
+            <div class="nav_logo">
+                <div class="logo_header">
+                    <img src="Imagenes/Logotipo.png" alt="Logo">
+                    <h3>GreenDetec</h3>
                 </div>
+            </div>
+
+            <ul class="nav_link  nav_link--menu">
+                <li class="nav_items">
+                    <a href="#" class="nav_links">Nosotros</a>
+                </li>
+                <li class="nav_items">
+                    <a href="#" class="nav_links">Inspiración</a>
+                </li>
+                <li class="nav_items">
+                    <a href="#" class="nav_links">Integrantes</a>
+                </li>
+                <li class="nav_items">
+                    <a href="#" class="nav_links">Contacto</a>
+                </li>
+                <li class="nav_items">
+                    <a href="#" class="nav_links">Centro de reciclaje</a>
+                </li>
+
+                <i class="bi bi-x-circle nav_close"></i>
+            </ul>
+
+            <div class="nav_menu">
+                <i class="bi bi-list nav_img"></i>
             </div>
         </nav>
+
+        <section class="hero_container">
+            <div class="prediccion_container">
+                <div class="elemento elemento_camara" style="position: relative;">
+                    <video id="video" playsinline autoplay style="width: 1px;"></video>
+                    <button class="btn-apagar-camara mb-2" id="apagar-camara" onclick="apagarCamara();"><i
+                            class="bi bi-power"></i></button>
+                    <button class="btn-cambiar-camara mb-2" id="cambiar-camara" onclick="cambiarCamara();"><i
+                            class="bi bi-repeat"></i></button>
+                    <canvas id="canvas" width="400" height="400" style="max-width: 100%;"></canvas>
+                    <canvas id="otrocanvas" width="150" height="150" style="display: none"></canvas>
+                    <div id="resultado"></div>
+                </div>
+                <div class="elemento elemento_informacion elemento_prueba">
+                    <div class="elemento_texto" id="informacion-texto">
+                        <p>La contaminación ambiental amenaza la salud humana y la
+                            biodiversidad. La acumulación de desechos contamina el agua y el aire, causando enfermedades
+                            y daños irreparables. Reciclar es esencial para reducir la generación de residuos, conservar
+                            recursos y mitigar los impactos negativos, forjando un futuro más sostenible y saludable.
+                        </p>
+                    </div>
+                    <div class="elemento_imagen" id="informacion-imagen"><img src="Imagenes/header_imagen1.jpg"></div>
+                </div>
+            </div>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#miModal3">
+                Tutorial
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="miModal3" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"
+                    style="width: 90%; height: 90%;">
+                    <div class="modal-content d-flex justify-content-center align-items-center">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLabel">Tutorial GreenDetec</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Cerrar"></button>
+                        </div>
+                        <div class="modal-body" style="display: flex;">
+                            <div class="column" style="flex: 1;">
+                                <h2>Pasos a seguir</h2>
+                                <!-- Contenido de la columna derecha (lista) -->
+                                <ol>
+                                    <li># 1</li>
+                                    <li># 2</li>
+                                    <li># 3</li>
+                                </ol>>
+                            </div>
+                            <div class="column" style="flex: 1;">
+                                <!-- Contenido de la columna izquierda -->
+                                <iframe width="100%" height="100%" src="Tutorial.mp4"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
     </header>
     <main>
-        <!-- Pantalla principal -->
-        <section class="contenedor-principal seccion-oscura">
-            <div class="hola text-center">
-                <div class="row">
-                    <div class="video col-md-6" style="position: relative;">
-                        <video id="video" playsinline autoplay style="width: 1px;"></video>
-                        <button class="btn-apagar-camara mb-2" id="apagar-camara" onclick="apagarCamara();"><i class="bi bi-power"></i></button>
-                        <button class="btn-cambiar-camara mb-2" id="cambiar-camara" onclick="cambiarCamara();"><i class="bi bi-repeat"></i></button>
-                        <canvas id="canvas" width="500" height="500" style="max-width: 100%;"></canvas>
-                        <canvas id="otrocanvas" width="150" height="150" style="display: none"></canvas>
-                        <div id="resultado"></div>
-                    </div>
-                    <div class="col-md-6" id="textosPantallaPrincipal">
-                        <div id="typewriter"></div>
-                    </div>
-                </div>
+
+        <!-- Nosotros -->
+        <section class="nosotros_container container">
+            <figure class="nosotros_picture">
+                <img src="Imagenes/contaminación.jpg" alt="Imagenes de contaminación" class="nosotros_img">
+            </figure>
+
+            <div class="nosotros_texts">
+                <h2 class="subtitle">¿Por qué utilizar GreenDetect?</h2>
+                <p class="nosotros_paragraph">La aplicación Greendetect es una herramienta útil para ayudar a las
+                    personas a reciclar correctamente. La aplicación utiliza la realidad aumentada para identificar
+                    objetos y determinar si son reciclables o no. Esto puede ayudar a las personas a evitar tirar
+                    materiales reciclables a la basura.</p>
             </div>
         </section>
 
-        <!-- Tutorial -->
-        <section class="video-tutorial secciones" id="tutorial">
-            <div class="text-center">
-                <div class="row">
-                    <div class="texto-tutorial col-md-6">
-                        <h2>TUTORIAL</h2>
-                        <ol>
-                            <li>Prende la Cámara</li>
-                            <li>Elije tu producto para escanear</li>
-                            <li>Verifica el resultado</li>
-                        </ol>                          
+        <!-- Inspiracion -->
+        <section class="inspiracion">
+            <div class="inspiracion_container container">
+                <i class="bi bi-arrow-left inspiracion_arrow" id="before"></i>
+                <section class="inspiracion_body inspiracion_body--show" data-id="1">
+                    <div class="inspiracion_text">
+                        <h2 class="subtitle">Las Traperas</h2>
+                        <p class="inspiracion_review">Es una organización que promueve el reciclaje de textiles. Las
+                            Traperas recolectan textiles usados y los convierten en nuevos productos, como alfombras,
+                            cojines y otros artículos.</p>
                     </div>
-                    <div class="col-md-6">
-                        <div id="video-container">
-                            <video controls>
-                                <source src="tutorialv1.mp4" type="video/mp4">
-                                Tu navegador no soporta el elemento de video.
-                            </video>
-                        </div>
+
+                    <figure class="inspiracion_picture">
+                        <img src="Imagenes/proyectos-las traperas.png" alt="Logo de las traperas"
+                            class="inspiracion_img">
+                    </figure>
+                </section>
+                <section class="inspiracion_body" data-id="2">
+                    <div class="inspiracion_text">
+                        <h2 class="subtitle">Ecowash</h2>
+                        <p class="inspiracion_review">Es un proyecto que promueve el lavado de autos sin agua. Ecowash
+                            utiliza un sistema de lavado de autos a presión que reduce el consumo de agua en un 90%.</p>
                     </div>
-                </div>
+
+                    <figure class="inspiracion_picture">
+                        <img src="Imagenes/proyectos-EcoWash.png" alt=" Logo de Ecowash" class="inspiracion_img">
+                    </figure>
+                </section>
+                <section class="inspiracion_body" data-id="3">
+                    <div class="inspiracion_text">
+                        <h2 class="subtitle">Basura Cero</h2>
+                        <p class="inspiracion_review">Es un proyecto que promueve la reducción, reutilización y
+                            reciclaje de residuos. Basura Cero trabaja con comunidades y organizaciones para implementar
+                            sistemas de gestión de residuos sostenibles.</p>
+                    </div>
+
+                    <figure class="inspiracion_picture">
+                        <img src="Imagenes/proyectos-basura cero.png" alt="Logo de las traperas"
+                            class="inspiracion_img">
+                    </figure>
+                </section>
+                <i class="bi bi-arrow-right inspiracion_arrow" id="next"></i>
             </div>
         </section>
 
-        <!-- GreenDetect -->
-        <section class="GreenDetect seccion-oscura secciones" id="greenDetect">
-            <div class="text-center">
-                <div class="row">
-                    <div class="imagen-GreenDetect col-md-6">
-                        <img src="Imagenes/Contaminación.jpg" class="img-responsive center-block" style="width: 90%;">
-                    </div>
-                    <div class="div-GreenDetect col-md-6">
-                        <h2 class="seccion-titulo">¿Por qué utilizar GreenDetect?</h2>
-                        <p class="seccion-texto">La aplicación Greendetect es una herramienta útil para ayudar a las personas a reciclar correctamente. La aplicación utiliza la realidad aumentada para identificar objetos y determinar si son reciclables o no. Esto puede ayudar a las personas a evitar tirar materiales reciclables a la basura.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Proyectos -->
-        <section class="seccion-clara secciones" id="proyectos">
-            <h2>Proyectos peruanos</h2>
-            <div class="proyectos">
-                <h1 id="titulo1" onclick="toggleParrafo1();">Las Traperas</h1>
-                <img id="imagen1" src="Imagenes/proyectos-las traperas.png" alt="Imagen" onclick="toggleParrafo1();">
-            </div>
-            <p class="texto-proyectos text-center" id="mi-parrafo1">Es una organización que promueve el reciclaje de textiles. Las Traperas recolectan textiles usados y los convierten en nuevos productos, como alfombras, cojines y otros artículos.</p>
-            <div class="proyectos">
-                <h1 id="titulo2" onclick="toggleParrafo2();">Ecowash</h1>
-                <img id="imagen2" src="Imagenes/proyectos-EcoWash.png" alt="Imagen" onclick="toggleParrafo2();">
-            </div>
-            <p class="texto-proyectos text-center" id="mi-parrafo2">Es un proyecto que promueve el lavado de autos sin agua. Ecowash utiliza un sistema de lavado de autos a presión que reduce el consumo de agua en un 90%.</p>
-            <div class="proyectos">
-                <h1 id="titulo3" onclick="toggleParrafo3();">Basura Cero</h1>
-                <img id="imagen3" src="Imagenes/proyectos-basura cero.png" alt="Imagen" onclick="toggleParrafo3();">
-            </div>
-            <p class="texto-proyectos text-center" id="mi-parrafo3">Es un proyecto que promueve la reducción, reutilización y reciclaje de residuos. Basura Cero trabaja con comunidades y organizaciones para implementar sistemas de gestión de residuos sostenibles.</p>
-        </section>
-        <!-- Centro reciclaje -->
-        <section class="centro-reciclaje seccion-oscura secciones text-center" id="centro-reciclaje">
-            <h2>Puntos de reciclaje</h2>
-            <div class="centros-fila">
-                <!---->
-                <button type="button" class="cr-btn btn-primary" data-bs-toggle="modal" data-bs-target="#miModal1">
-                    Villa el Salvador
-                </button>
-                
-                <!-- Modal -->
-                <div class="modal fade" id="miModal1" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalLabel">CIRC</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div style="width: 100%; height: 400px;">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15597.426596854439!2d-76.98806884458007!3d-12.224113499999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105bb2d6bec31c5%3A0x7ff3b44514dd3530!2sCIRC!5e0!3m2!1ses-419!2spe!4v1699025362532!5m2!1ses-419!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>                
-                <!---->
-                <button type="button" class="cr-btn btn-primary" data-bs-toggle="modal" data-bs-target="#miModal2">
-                    San Isidro
-                </button>
-                
-                <!-- Modal -->
-                <div class="modal fade" id="miModal2" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalLabel">Estación de reciclaje San Isidro</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div style="width: 100%; height: 400px;">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.220462152477!2d-77.05789149044139!3d-12.097054442787462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c852bc97ab67%3A0xac2b65ed8c192887!2sEstaci%C3%B3n%20De%20Reciclaje%20San%20Isidro!5e0!3m2!1ses-419!2spe!4v1699037293295!5m2!1ses-419!2spe" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>                               
-            </div>
-            <div class="centros-fila">
-                <button type="button" class="cr-btn btn-primary" data-bs-toggle="modal" data-bs-target="#miModal3">
-                    Ate
-                </button>
-                
-                <!-- Modal -->
-                <div class="modal fade" id="miModal3" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalLabel">Planta de segregación Ate</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div style="width: 100%; height: 400px;">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.2105101835186!2d-76.8914652904431!3d-12.029023741519303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c3d951b05243%3A0x8ebdfa3b858837cf!2sPlanta%20De%20Segregacion%20Ate!5e0!3m2!1ses-419!2spe!4v1699022707300!5m2!1ses-419!2spe" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!---->
-                <button type="button" class="cr-btn btn-primary" data-bs-toggle="modal" data-bs-target="#miModal4">
-                    Bellavista
-                </button>
-                
-                <!-- Modal -->
-                <div class="modal fade" id="miModal4" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalLabel">Asociación de recicladores Centro de Acopio Bellavista</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div style="width: 100%; height: 400px;">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.944721682919!2d-77.12058729044267!3d-12.047324441859685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105cbbfde827af3%3A0xadee60b743a30de3!2sAsociaci%C3%B3n%20de%20Recicladores%20Centro%20de%20Acopio%20Bellavista!5e0!3m2!1ses-419!2spe!4v1699021773740!5m2!1ses-419!2spe" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!---->
-            </div>
-        </section>
         <!-- Integrantes -->
-        <section class="integrante seccion-clara secciones"id="integrantes">
-            <h2>Integrantes</h2>
+        <section class="integrante container" id="integrantes">
             <div class="container text-center">
                 <div class="row">
                     <!-- Joselin -->
                     <div class="columna col-12 col-md-4">
-                        <img class="imagen-perfil" src="Imagenes/Joselin.jpg" alt="Foto de Joselin">
+                        <img class="imagen-perfil" src="Imagenes/integrante_Joselin.jpg" alt="Foto de Joselin">
                         <p class="integrante-titulo">Joselin</p>
                         <p class="especialidad">Back end</p>
-                        <p>Su interes esta relacionado con la lógica de negocio, el análisis de datos, la administración y el entrenamiento de los datos utilizando la herramienta TensorFlow.</p>
+                        <p>Su interes esta relacionado con la lógica de negocio, el análisis de datos, la administración
+                            y el entrenamiento de los datos utilizando la herramienta TensorFlow.</p>
                         <div class="badges-contenedor">
                             <span class="badge text-bg-custom">Python</span>
                             <span class="badge text-bg-custom">Google Colab</span>
-                            <span class="badge text-bg-custom">Kagle</span>
+                            <span class="badge text-bg-custom">Kaggle</span>
                         </div>
                         <div class="link-redes">
                             <a href="https://github.com/Johana-RHP"><i class="bi bi-github color-git"></i></a>
@@ -251,10 +195,11 @@
                     </div>
                     <!-- Stefano -->
                     <div class="columna col-12 col-md-4">
-                        <img class="imagen-perfil" src="Imagenes/Stefano.png" alt="Foto de Stefano">
+                        <img class="imagen-perfil" src="Imagenes/integrante_Stefano.png" alt="Foto de Stefano">
                         <p class="integrante-titulo">Stefano</p>
                         <p class="especialidad">Full Stack</p>
-                        <p>Comprende el funcionamiento subyacente de la web y también se muestra interesada en el diseño de interfaz y cómo llevarlo a cabo de manera adecuada.</p>
+                        <p>Comprende el funcionamiento subyacente de la web y también se muestra interesada en el diseño
+                            de interfaz y cómo llevarlo a cabo de manera adecuada.</p>
                         <div class="badges-contenedor">
                             <span class="badge text-bg-custom">Python</span>
                             <span class="badge text-bg-custom">Google Colab</span>
@@ -270,43 +215,90 @@
                     </div>
                     <!-- Johana -->
                     <div class="columna col-12 col-md-4">
-                        <img class="imagen-perfil" src="Imagenes/Johana.jpg" alt="Foto de Johana">
+                        <img class="imagen-perfil" src="Imagenes/integrante_Johana.jpg" alt="Foto de Johana">
                         <p class="integrante-titulo">Johana</p>
                         <p class="especialidad">Front end</p>
-                        <p>Muestra interés en el campo debido a su responsabilidad no solo en la apariencia visible en el navegador, sino también en la atención a la usabilidad, la legibilidad y el funcionamiento general, desde una perspectiva de interacción con el usuario.</p>
+                        <p>Muestra interés en el campo debido a su responsabilidad no solo en la apariencia visible en
+                            el navegador, sino también en la atención a la usabilidad, la legibilidad y el
+                            funcionamiento general, desde una perspectiva de interacción con el usuario.</p>
                         <div class="badges-contenedor">
                             <span class="badge text-bg-custom">HTML</span>
                             <span class="badge text-bg-custom">CSS</span>
                             <span class="badge text-bg-custom">JavaScript</span>
                         </div>
                         <div class="link-redes">
-                            <a href="https://github.com/Johana-RHP" target="_blank"><i class="bi bi-github color-git"></i></a>
-                            <a href="https://www.linkedin.com/feed/" target="_blank"><i class="bi bi-linkedin color-linkedin"></i></a>
+                            <a href="https://github.com/Johana-RHP" target="_blank"><i
+                                    class="bi bi-github color-git"></i></a>
+                            <a href="https://www.linkedin.com/feed/" target="_blank"><i
+                                    class="bi bi-linkedin color-linkedin"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Contacto -->
+        <section class="contacto_container">
+            <div class="contacto container">
+                <p><span>¡Únete a nuestro emocionante proyecto GreenDetect</span> y sé parte del cambio hacia un mundo
+                    más
+                    sostenible! Estamos construyendo un equipo apasionado que trabaja en la detección de residuos
+                    mediante la innovadora tecnología de realidad aumentada, que distingue entre materiales orgánicos y
+                    reciclables. Si compartes nuestra visión y deseas formar parte de esta iniciativa, simplemente haz
+                    clic en el botón de abajo y únete a nosotros en la misión de hacer del planeta un lugar más verde.
+                    <b>¡Te esperamos para marcar la diferencia juntos!</b>
+                </p>
+                <p class="hashtag-emoji">🌿🌍 #GreenDetect #Sostenibilidad #UneteAlCambio</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdCZYIWF8-L0-WOZ0vmGLD2iTwdj8QlPD9iLscPqe1so6OhXA/viewform?usp=sf_link"
+                    class="btn" target="_blank">Contactar</a>
+            </div>
+        </section>
+
+        <!-- Centros de reciclaje -->
+        <section class="mapa container">
+            <section id="controls-section">
+                <button onclick="inicializarMapa()">Ubicación Actual</button>
+            </section>
+
+            <section id="map-section">
+                <div id="map"></div>
+            </section>
+        </section>
+
     </main>
-    <footer class="text-center secciones">
-        <div class="header-footer">
-            <img src="Imagenes/Logotipo.png">
-            <h3>GreenDetect</h3>
-        </div>
-        <div class="body-footer">
-            <h5>¿Deseas contribuir al proyecto?</h5>
-            <p>Comunicate al siguiente correo: stefano.1190@gmail.com</p>
-            <p>Año de fundación: 2023</p>
-        </div>
+    <footer class="footer_container">
+        <section class="footer container">
+            <div class="footer_colum">
+                <div class="logo-info">
+                    <div class="logo_footer">
+                        <img src="Imagenes/Logotipo.png" alt="Logo">
+                        <h3>GreenDetec</h3>
+                    </div>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61553144174185" class="icon" target="_blank"><i
+                            class="bi bi-facebook"></i></i></a>
+                    <a href="https://www.instagram.com/greendetect7/" class="icon" target="_blank"><i
+                            class="bi bi-instagram"></i></a>
+                    <a href="https://twitter.com/greendetect" class="icon" target="_blank"><i
+                            class="bi bi-twitter-x"></i></a>
+                    <a href="greendetect7@gmail.com" class="icon"><i class="bi bi-envelope"></i></a>
+                </div>
+            </div>
+            <p class="creacion">Año de creación: 2023</p>
+        </section>
     </footer>
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Tensorflow 2.0 -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
-    <!-- JavaScript -->
-    <script src="predicción.js"></script>
-    <script src="script.js"></script>
-    <script src="body.js"></script>
+    <!-- Js -->
+    <script src="js/predicción.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/mapa.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEZTOLfZwAjhvsBpBRhcQzHl6THMjNHFY&libraries=places&callback=initMap" async defer></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
