@@ -19,62 +19,65 @@
 
 <body>
     <header class="hero">
-        <nav class="nav container">
-            <div class="nav_logo">
-                <div class="logo_header">
-                    <img src="Imagenes/Logotipo.png" alt="Logo">
-                    <h3>GreenDetec</h3>
-                </div>
-            </div>
-
-            <ul class="nav_link  nav_link--menu">
-                <li class="nav_items">
-                    <a href="#" class="nav_links">Nosotros</a>
-                </li>
-                <li class="nav_items">
-                    <a href="#" class="nav_links">Inspiración</a>
-                </li>
-                <li class="nav_items">
-                    <a href="#" class="nav_links">Integrantes</a>
-                </li>
-                <li class="nav_items">
-                    <a href="#" class="nav_links">Contacto</a>
-                </li>
-                <li class="nav_items">
-                    <a href="#" class="nav_links">Centro de reciclaje</a>
-                </li>
-
-                <i class="bi bi-x-circle nav_close"></i>
-            </ul>
-
-            <div class="nav_menu">
-                <i class="bi bi-list nav_img"></i>
-            </div>
-        </nav>
-
-        <section class="hero_container">
-            <div class="prediccion_container">
-                <div class="elemento elemento_camara" style="position: relative;">
-                    <video id="video" playsinline autoplay style="width: 1px;"></video>
-                    <button class="btn-apagar-camara mb-2" id="apagar-camara" onclick="apagarCamara();"><i
-                            class="bi bi-power"></i></button>
-                    <button class="btn-cambiar-camara mb-2" id="cambiar-camara" onclick="cambiarCamara();"><i
-                            class="bi bi-repeat"></i></button>
-                    <canvas id="canvas" width="400" height="400" style="max-width: 100%;"></canvas>
-                    <canvas id="otrocanvas" width="150" height="150" style="display: none"></canvas>
-                    <div id="resultado"></div>
-                </div>
-                <div class="elemento elemento_informacion elemento_prueba">
-                    <div class="elemento_texto" id="informacion-texto">
-                        <p>La contaminación ambiental amenaza la salud humana y la
-                            biodiversidad. La acumulación de desechos contamina el agua y el aire, causando enfermedades
-                            y daños irreparables. Reciclar es esencial para reducir la generación de residuos, conservar
-                            recursos y mitigar los impactos negativos, forjando un futuro más sostenible y saludable.
-                        </p>
+        <div class="grid_nav">
+            <nav class="nav container">
+                <div class="nav_logo">
+                    <div class="logo_header">
+                        <img src="Imagenes/Logotipo.png" alt="Logo">
+                        <h3>GreenDetec</h3>
                     </div>
-                    <div class="elemento_imagen" id="informacion-imagen"><img src="Imagenes/header_imagen1.jpg"></div>
                 </div>
+    
+                <ul class="nav_link  nav_link--menu">
+                    <li class="nav_items">
+                        <a href="nosotros" class="nav_links">Nosotros</a>
+                    </li>
+                    <li class="nav_items">
+                        <a href="inspiracion" class="nav_links">Inspiración</a>
+                    </li>
+                    <li class="nav_items">
+                        <a href="integrantes" class="nav_links">Integrantes</a>
+                    </li>
+                    <li class="nav_items">
+                        <a href="contacto" class="nav_links">Contacto</a>
+                    </li>
+                    <li class="nav_items">
+                        <a href="centro_reciclaje" class="nav_links">Centro de reciclaje</a>
+                    </li>
+    
+                    <i class="bi bi-x-circle nav_close"></i>
+                </ul>
+    
+                <div class="nav_menu">
+                    <i class="bi bi-list nav_img"></i>
+                </div>
+            </nav>
+        </div>
+
+        <!-- <section class="hero_container"> -->
+        <div class="grid_camara">
+            <div class="elemento elemento_camara" style="position: relative;">
+                <video id="video" playsinline autoplay style="width: 1px;"></video>
+                <button class="btn-apagar-camara mb-2" id="apagar-camara" onclick="apagarCamara();"><i
+                        class="bi bi-power"></i></button>
+                <button class="btn-cambiar-camara mb-2" id="cambiar-camara" onclick="cambiarCamara();"><i
+                        class="bi bi-repeat"></i></button>
+                <canvas id="canvas" width="400" height="400" style="max-width: 100%;"></canvas>
+                <canvas id="otrocanvas" width="150" height="150" style="display: none"></canvas>
+                <div id="resultado"></div>
             </div>
+        </div>
+        <div class="grid_info">
+            <div class="elemento_texto" id="informacion-texto">
+                <p>La contaminación ambiental amenaza la salud humana y la
+                    biodiversidad. La acumulación de desechos contamina el agua y el aire, causando enfermedades
+                    y daños irreparables. Reciclar es esencial para reducir la generación de residuos, conservar
+                    recursos y mitigar los impactos negativos, forjando un futuro más sostenible y saludable.
+                </p>
+            </div>
+            <div class="elemento_imagen" id="informacion-imagen"><img src="Imagenes/header_imagen1.jpg"></div>
+        </div>
+        <div class="grid_tutorial">
             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#miModal3">
                 Tutorial
             </button>
@@ -108,12 +111,37 @@
                 </div>
             </div>
             </div>
-        </section>
+        </div>
+        
+            <!-- <div class="prediccion_container">
+                <div class="elemento elemento_camara" style="position: relative;">
+                    <video id="video" playsinline autoplay style="width: 1px;"></video>
+                    <button class="btn-apagar-camara mb-2" id="apagar-camara" onclick="apagarCamara();"><i
+                            class="bi bi-power"></i></button>
+                    <button class="btn-cambiar-camara mb-2" id="cambiar-camara" onclick="cambiarCamara();"><i
+                            class="bi bi-repeat"></i></button>
+                    <canvas id="canvas" width="400" height="400" style="max-width: 100%;"></canvas>
+                    <canvas id="otrocanvas" width="150" height="150" style="display: none"></canvas>
+                    <div id="resultado"></div>
+                </div>
+                <div class="elemento elemento_informacion elemento_prueba">
+                    <div class="elemento_texto" id="informacion-texto">
+                        <p>La contaminación ambiental amenaza la salud humana y la
+                            biodiversidad. La acumulación de desechos contamina el agua y el aire, causando enfermedades
+                            y daños irreparables. Reciclar es esencial para reducir la generación de residuos, conservar
+                            recursos y mitigar los impactos negativos, forjando un futuro más sostenible y saludable.
+                        </p>
+                    </div>
+                    <div class="elemento_imagen" id="informacion-imagen"><img src="Imagenes/header_imagen1.jpg"></div>
+                </div>
+            </div> -->
+        <!-- </section> -->
     </header>
     <main>
 
         <!-- Nosotros -->
         <section class="nosotros_container container">
+            <h2 id="nosotros">Nosotros</h2>
             <figure class="nosotros_picture">
                 <img src="Imagenes/contaminación.jpg" alt="Imagenes de contaminación" class="nosotros_img">
             </figure>
@@ -129,6 +157,7 @@
 
         <!-- Inspiracion -->
         <section class="inspiracion">
+            <h2 id="inspiracion">Inspiración</h2>
             <div class="inspiracion_container container">
                 <i class="bi bi-arrow-left inspiracion_arrow" id="before"></i>
                 <section class="inspiracion_body inspiracion_body--show" data-id="1">
@@ -174,6 +203,7 @@
 
         <!-- Integrantes -->
         <section class="integrante container" id="integrantes">
+            <h2 id="integrantes">Integrantes</h2>
             <div class="container text-center">
                 <div class="row">
                     <!-- Joselin -->
@@ -239,6 +269,7 @@
 
         <!-- Contacto -->
         <section class="contacto_container">
+            <h2 id="contacto">Contacto</h2>
             <div class="contacto container">
                 <p><span>¡Únete a nuestro emocionante proyecto GreenDetect</span> y sé parte del cambio hacia un mundo
                     más
@@ -256,6 +287,7 @@
 
         <!-- Centros de reciclaje -->
         <section class="mapa container">
+            <h2 id="centros_reciclaje">Centros de reciclaje</h2>
             <section id="controls-section">
                 <button onclick="inicializarMapa()">Ubicación Actual</button>
             </section>
